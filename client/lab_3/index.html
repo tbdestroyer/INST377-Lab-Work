@@ -1,5 +1,59 @@
-<!--
-    Replace this with your working code from Lab 2, and include:
-    - The styles in this folder's `style.css`
-    - The script in script.js, which should be included via a `<script src="script.js" >` call before your closing </body> tag 
--->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taner's Labs</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- wrapper-->
+      <header class="header"><h1>Taner's Labs for INST 377</h1></header>
+      <div class="container">
+        <!-- container-->
+        <div class="left_section box">
+          <!-- left inputs -->
+          <h2>Album Names</h2>
+          <ol class="box">
+            <li>SOS - SZA</li>
+            <li>Mansion Musik  - Trippie Redd</li>
+            <li>Heroes and Villains  - Metro Boomin</li>
+            <li>Her Loss - Drake & 21Savage</li>
+            <li>It's Only Me - Lil Baby</li>
+          </ol>
+        </div>
+
+        <div class="right_section box">
+          <!-- right side -->
+          <h2>Image Carousel</h2>
+          <div class="carousel">
+            <button class="prev">prev</button>
+              <div class="slides">
+                <!-- image box -->
+                <div class="carousel_item visible"><img id="slide_1" src="images/BarbaraLiskov.jpg" alt="Barabara Liskov" /></div>
+                <div class="carousel_item hidden"><img id="slide_2" src="images/BjarneStroustrup.jpg" alt="Bjarne Stroustrup" /></div>
+                <div class="carousel_item hidden"><img id="slide_3" src="images/LinusTorvalds.jpg" alt="Linus Torvalds" /></div>
+                <div class="carousel_item hidden"><img id="slide_4" src="images/RichardStallman.jpg" alt="RichardStallman"/></div>
+              </div>
+              <button class="next">next</button>
+          </div>
+          <div class="box">
+            <!-- description box -->
+            <p>Some Pioneers of Computer Science</p>
+          </div>
+        </div>
+      </div>
+    </div>
+      <footer class="footer">
+        <a
+          href="http://github.com/tbdestroyer"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Taner Bulbul github (tbdestroyer)</a
+        >
+      </footer>
+      <script src="script.js"></script>
+  </body>
+</html>
