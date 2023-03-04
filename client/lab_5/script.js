@@ -12,11 +12,19 @@ function filterList(list, query) {
 
     Ask the TAs if you need help with this
   */
+
+    return list.filter((item)=>{
+const lcItem = item.name.toLowerCase(); /* convert each item  name field in the retaurant list to lowercase*/
+const lcQuery = query.toLowerCase(); /* convert search string to lowercase*/
+return  lcItem.includes(lcQuery); /* find search string matches in the restaurant list name fields*/
+});
+
 }
 
 async function mainEvent() { // the async keyword means we can make API requests
   const mainForm = document.querySelector('.main_form'); // This class name needs to be set on your form before you can listen for an event on it
   // Add a querySelector that targets your filter button here
+  const filterButton = document.querySelector('.filter_button');
 
   let currentList = []; // this is "scoped" to the main event function
   
@@ -54,7 +62,23 @@ async function mainEvent() { // the async keyword means we can make API requests
     console.table(currentList); 
   });
 
+  filterButton.addEventListener('click', (event) => {
 
+    console.log("Filter button clicked");
+    if (currentList.length === 0)
+       alert('Please click the Load Data button first to load data');
+    else{
+       const formData = new FormData(mainForm);
+       const formProps = Object.fromEntries(formData);
+       if (formProps.resto.length === 0)
+          alert('Please enter a name in Restaurant Name box');
+       else {
+          const newList = filterList(currentList, formProps.resto);
+          console.log(newList);
+       }
+    }
+
+  });
   /*
     Now that you HAVE a list loaded, write an event listener set to your filter button
     it should use the 'new FormData(target-form)' method to read the contents of your main form
@@ -66,7 +90,7 @@ async function mainEvent() { // the async keyword means we can make API requests
     Fire it here and filter for the word "pizza"
     you should get approximately 46 results
   */
-}
+} /* end mainEvent */
 
 /*
   This adds an event listener that fires our main event only once our page elements have loaded
