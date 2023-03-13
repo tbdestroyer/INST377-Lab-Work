@@ -51,7 +51,6 @@ function injectHTML(list) {
 
 }
 
-
 /*
 ## Process Data Separately From Injecting It
   This function should accept your 1,000 records
@@ -71,7 +70,7 @@ function injectHTML(list) {
 - Return only their name, category, and location
 - Return the new list of 15 restaurants so we can work on it separately in the HTML injector
 */
-function processRestaurants(list) {
+function getRestList(list) {
   console.log('fired restaurants list');
   const range = [...Array(15).keys()];
   const newArray = range.map( (item)=>{
@@ -79,6 +78,46 @@ function processRestaurants(list) {
      return list[index];
   });
   return newArray;
+}
+
+/* Sets have unique element. Check for duplicates comparing set length of 
+array to its array size, https://www.techiedelight.com/check-array-contains-duplicates-javascript*/
+function hasDuplicates(arr) {
+  return new Set(arr).size !== arr.length;
+}
+
+/* recreate 15 random restaurant list if duplicate establishmnet id is found
+try only up to 3 times if duplicate found, if no duplicates return right away */
+function processRestaurants(origArr) {
+
+  let rest_list=[];
+  let establishment_id_list =[];
+
+  for(let i=0; i < 3; i++){ // Try up to 3 times for finding a non-duplicate list
+    establishment_id_list =[];
+    rest_list = getRestList(origArr); // get 15 random restaurant list
+    
+    /* create a list only for establishmnet ids as keys for duplicate search */
+    rest_list.forEach(item => {
+       if(item?.establishment_id)
+          establishment_id_list.push(item.establishment_id);
+    })
+    
+
+    /*check if there is any duplicate establishment ids */
+    if (hasDuplicates(establishment_id_list) ) // continue looping up to 3 times
+    {
+      console.log('Found duplicates!!!!');
+      console.log(establishment_id_list);
+    }
+    else{
+       console.log('No duplicates in 15 restaurant list iter:' + i);
+       break;  // break from loop if no duplicates 
+    }
+
+  }
+
+  return rest_list;
 }
 
  /*
