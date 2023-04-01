@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taner's Labs</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <h1>Taner's Labs for INST 377</h1>
+      </header>
+      <div class="container">
+        <div class="left_section box">
+          <h3>Form Inputs</h3>
+          <form
+            action="https://data.princegeorgescountymd.gov/resource/umjn-t2iz.json"
+            class="box main_form"
+          >
+            <div>
+              <label for="resto">Filter Restaurant List</label>
+              <input type="text" name="resto" id="resto" />
+            </div>
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            <button  type="submit" class="button1" id="get-resto">Change Restaurants</button>
+          </form>
+        </div>
+        <div class="right_section box">
+          <h3>Local Restaurants</h3>
+          <div class="box" id="restaurant_list">A List of Local restaurants from an API</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a
+        href="http://github.com/tbdestroyer"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Taner Bulbul github (tbdestroyer)</a
+      >
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
